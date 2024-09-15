@@ -34,7 +34,7 @@ public class subMetodos {
         notacionFg = formato.format(Fg);
 
         try {
-            JOptionPane.showInputDialog(null, "La fuerza gravitacional que actúa entre ambos cuerpos es de\n " + notacionFg);
+            JOptionPane.showInputDialog(null, "La fuerza gravitacional que actúa entre ambos cuerpos es de\n " + notacionFg + "[N]");
         } catch (NumberFormatException n) {
             JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
         }
@@ -86,12 +86,12 @@ public class subMetodos {
             notacionFy = formato.format(fy);
 
             try {
-                JOptionPane.showInputDialog(null, "El valor  del campo gravitacional que actúa entre ambos cuerpos en x es de\n " + notacionFx);
+                JOptionPane.showInputDialog(null, "El valor  del campo gravitacional que actúa entre ambos cuerpos en x es de\n " + notacionFx + "[N]");
             } catch (NumberFormatException n) {
                 JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
             }
             try {
-                JOptionPane.showInputDialog(null, "El valor del campo gravitacional que actúa entre ambos cuerpos en y es de\n " + notacionFy);
+                JOptionPane.showInputDialog(null, "El valor del campo gravitacional que actúa entre ambos cuerpos en y es de\n " + notacionFy + "[N]");
             } catch (NumberFormatException n) {
                 JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
             }
@@ -121,7 +121,7 @@ public class subMetodos {
             notacionCg = formato.format(Cg);
 
             try {
-                JOptionPane.showInputDialog(null, "El valor absoluto del campo gravitacional que actúa entre ambos cuerpos es de\n " + notacionCg);
+                JOptionPane.showInputDialog(null, "El valor absoluto del campo gravitacional que actúa entre ambos cuerpos es de\n " + notacionCg + "[N]");
             } catch (NumberFormatException n) {
                 JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
             }
@@ -133,7 +133,126 @@ public class subMetodos {
                         JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
                     }
                 }
+    }
 
+    public static void Ley_coulomb(){
+        DecimalFormat formato = new DecimalFormat ("0.00E0");
+        double Ke = 9 * (10^9), MagnitudF = 0; String notacionKe;
+
+        try {
+            m1 = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa el valor de la carga 1 (MicroC)"));
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+       
+        try {
+            m2 = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa el valor de la carga 2 (MicroC)"));
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+
+        try {
+            r = Integer.parseInt(JOptionPane.showInputDialog(null, "ingresa el valor de la distancia entre ambas cargas (m)"));
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+
+        Ke = G * ((m1 * m2) / (r^2));
+        notacionKe = formato.format(Ke);
+
+        try {
+            JOptionPane.showInputDialog(null, "La magnitud de la fuerza que actúa entre ambas cargas es de\n " + notacionKe + "[N]" );
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+
+    }
+
+    public static void Intensi_campG(){
+        DecimalFormat formato = new DecimalFormat ("0.00E0");
+        double Icg ; String notacionIcg;
+
+        try {
+            m1 = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa el valor de la masa (kg)"));
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+
+        try {
+            r = Integer.parseInt(JOptionPane.showInputDialog(null, "ingresa el valor de la distancia entre la masa y la fuerza que la altera (m)"));
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+
+        Icg = G * (m1  / (r^2));
+        notacionIcg = formato.format(Icg);
+
+        try {
+            JOptionPane.showInputDialog(null, "La intensidad del campo gravitacional generada en relacion a la masa es de\n " + notacionIcg + "[m/(s^2)]");
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        } 
+
+    }
+
+    public static void EnergiaMec(){
+        DecimalFormat formato = new DecimalFormat ("0.00E0");
+        double EM, h = 0, g = 9.8; String notacionEM; int v = 0;
+
+        try {
+            m1 = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa el valor de la masa (kg)"));
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+       
+        try {
+            v = Integer.parseInt(JOptionPane.showInputDialog(null, "ingresa el valor de la velocidad (M/s)"));
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+
+        try {
+            h = Integer.parseInt(JOptionPane.showInputDialog(null, "ingresa el valor de la altura respecto el punto de referencia (m)"));
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+
+        EM = ((m1/2) * (v^2)) + (m1 * g * h) ;
+        notacionEM = formato.format(EM);
+
+        try {
+            JOptionPane.showInputDialog(null, "El valor de la energia mecanica generada es de\n " + notacionEM + "[J]");
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+    
+    }
+
+    public static void EnergiaPG(){
+        DecimalFormat formato = new DecimalFormat ("0.00E0");
+        double Epg, h = 0, g = 9.8; String notacionEpg;
+
+        try {
+            m1 = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa el valor de la masa (kg)"));
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+
+        try {
+            h = Integer.parseInt(JOptionPane.showInputDialog(null, "ingresa el valor de la altura/desplazamiento respecto el punto de referencia (m)"));
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+
+        Epg = (m1 * g * h) ;
+        notacionEpg = formato.format(Epg);
+
+        try {
+            JOptionPane.showInputDialog(null, "El valor de la energia potencial gravitacional generada es de\n " + notacionEpg + "[J]");
+        } catch (NumberFormatException n) {
+            JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
+        }
+        
     }
 
 
