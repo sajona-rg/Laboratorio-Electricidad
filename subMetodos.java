@@ -4,13 +4,13 @@ import javax.swing.JOptionPane;
 import java.text.DecimalFormat;
 
 public class subMetodos {
-    static double G = (6.674)*(10^(-11));
+    static double G = 6.67 * (10^(-11));
     static double m1 = 0, m2 = 0; static  int r = 0;
     static double Cg = 0;
 
     public static void LeyGravi(){
-        DecimalFormat formato = new DecimalFormat ("0.00E0");
-        double Fg ; String notacionFg;
+        DecimalFormat formato = new DecimalFormat ("0.###E0");
+        double Fg = 0; String notacionFg;
 
         try {
             m1 = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa el valor de la masa 1 (kg)"));
@@ -30,7 +30,7 @@ public class subMetodos {
             JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
         }
 
-        Fg = G * ((m1 * m2) / (r^2));
+        Fg = (G * ((m1 * m2))) / (r^2);
         notacionFg = formato.format(Fg);
 
         try {
@@ -42,7 +42,7 @@ public class subMetodos {
 
     public static void CampoGravi(){
         int opt = 0;
-        DecimalFormat formato = new DecimalFormat ("0.00E0");
+        DecimalFormat formato = new DecimalFormat ("0.###E0");
         double Modulo; String notacionCg, notacionFx, notacionFy;
 
 
@@ -136,8 +136,8 @@ public class subMetodos {
     }
 
     public static void Ley_coulomb(){
-        DecimalFormat formato = new DecimalFormat ("0.00E0");
-        double Ke = 9 * (10^9), MagnitudF = 0; String notacionKe;
+        DecimalFormat formato = new DecimalFormat ("0.###E0");
+        double Ke = 9 * (10^9), MagnitudF = 0; String notacionmg;
 
         try {
             m1 = Double.parseDouble(JOptionPane.showInputDialog(null, "ingresa el valor de la carga 1 (MicroC)"));
@@ -157,11 +157,11 @@ public class subMetodos {
             JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
         }
 
-        Ke = G * ((m1 * m2) / (r^2));
-        notacionKe = formato.format(Ke);
+        MagnitudF =  (Ke * ((m1) * (m2))) / (r^2) ;
+        notacionmg = formato.format(MagnitudF);
 
         try {
-            JOptionPane.showInputDialog(null, "La magnitud de la fuerza que actúa entre ambas cargas es de\n " + notacionKe + "[N]" );
+            JOptionPane.showInputDialog(null, "La magnitud de la fuerza que actúa entre ambas cargas es de\n " + notacionmg + "[N]" );
         } catch (NumberFormatException n) {
             JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
         }
@@ -169,7 +169,7 @@ public class subMetodos {
     }
 
     public static void Intensi_campG(){
-        DecimalFormat formato = new DecimalFormat ("0.00E0");
+        DecimalFormat formato = new DecimalFormat ("0.###E0");
         double Icg ; String notacionIcg;
 
         try {
@@ -196,7 +196,7 @@ public class subMetodos {
     }
 
     public static void EnergiaMec(){
-        DecimalFormat formato = new DecimalFormat ("0.00E0");
+        DecimalFormat formato = new DecimalFormat ("0.###E0");
         double EM, h = 0, g = 9.8; String notacionEM; int v = 0;
 
         try {
@@ -229,7 +229,7 @@ public class subMetodos {
     }
 
     public static void EnergiaPG(){
-        DecimalFormat formato = new DecimalFormat ("0.00E0");
+        DecimalFormat formato = new DecimalFormat ("0.###E0");
         double Epg, h = 0, g = 9.8; String notacionEpg;
 
         try {
@@ -248,7 +248,7 @@ public class subMetodos {
         notacionEpg = formato.format(Epg);
 
         try {
-            JOptionPane.showInputDialog(null, "El valor de la energia potencial gravitacional generada es de\n " + notacionEpg + "[J]");
+            JOptionPane.showInputDialog(null, "El valor de la energia potencial gravitacional generada es de\n " + Epg + "[J]");
         } catch (NumberFormatException n) {
             JOptionPane.showMessageDialog(null, "Error" +  n.getMessage());
         }

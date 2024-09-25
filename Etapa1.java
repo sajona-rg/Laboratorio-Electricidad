@@ -33,8 +33,8 @@ public class Etapa1 {
                     subMetodos.EnergiaPG();
                     break;
                 
-                case 7:
-                     
+                case 7: 
+                
                     break;
 
                 default:
@@ -45,9 +45,8 @@ public class Etapa1 {
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Error" + e.getMessage()); 
             }
-        }while(opcion!=6);
+        }while(opcion!=7);
 
     }
   
-
 }
